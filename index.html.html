@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOS ERP</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ECF0F1;
+            flex-direction: column;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+            display: none; /* Ban đầu ẩn iFrame */
+        }
+        .welcome {
+            display: block; /* Hiển thị màn hình chào mừng ban đầu */
+        }
+        .welcome img {
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #2C3E50;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .sidebar a:hover {
+            background: #34495E;
+        }
+        .content {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ECF0F1;
+        }
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>MOS - App</h2>
+        <a onclick="loadApp('https://medwisez-my.sharepoint.com/my?id=%2Fpersonal%2Fntoai%5Fvietcan%5Fcom%2FDocuments%2FNHA%20KHOA')">OneDrive</a>
+        <a onclick="loadApp('https://teams.microsoft.com/')">MS-Team</a>
+        <a onclick="loadApp('https://zalo.me/pc')">Zalo</a>
+        <a onclick="loadApp('https://teams.microsoft.com/v2/')">MS-Planner</a>
+        <a onclick="loadApp('https://chatgpt.com/g/g-67a99ef8558881919bc3150cab7781db-vc-product')">AI-Product</a>
+        <a onclick="loadApp('https://chatgpt.com/g/g-67a9b92e70e88191881c808095538283-vc-dent-sale')">AI-Sale</a>
+        <a onclick="loadApp('https://docs.google.com/spreadsheets/d/1WECwukvE-bbTwQ0o1fQqQ7DSi8aY3XNy5FeanR0j_rM/edit?gid=0#gid=0', true)">TIẾN ĐỘ DỰ ÁN</a>
+        <a onclick="loadApp('https://docs.google.com/spreadsheets/d/1z5EdXr0ubQFPy8n8-nnwR12EYPt19GQpSnLAmdTjM0k/edit?gid=1256772025#gid=1256772025', true)">XUẤT-NHẬP-TỒN KHO</a>
+        <a onclick="loadApp('https://docs.google.com/spreadsheets/d/1IwOvVhVHm7sCVhvDFGVt9qcpUBGRQ1vWJuLV8vSBJVM/edit?gid=142123743#gid=142123743', true)">DANH MỤC & GIÁ</a>
+        <a onclick="loadApp('https://docs.google.com/spreadsheets/d/1eHFVAIguH3GpdkvWtSJ-Hhr2gUgzfyVFJkbK0BR5S7s/edit?gid=0#gid=0', true)">QUẢN LÝ TỔNG</a>
+        <a onclick="loadApp('https://docs.google.com/spreadsheets/d/1eGdGjMB50XRrcJpOiuJvgNnW2h5OxBoQRklKmMzB7go/edit?gid=0#gid=0', true)">S - Miền Nam</a>
+        <a onclick="loadApp('https://docs.google.com/spreadsheets/d/1wbXXNRTV8ozpXRWGxFOgn0qvaGKo2QO83kTALjT-dTY/edit?gid=292891055#gid=292891055', true)">S - Miền Bắc</a>
+    </div>
+   <div class="content" id="contentContainer">
+        <div class="welcome" id="welcomeScreen">
+            <img src="https://c1nguyendu.pgdcujut.edu.vn/wp-content/uploads/2022/07/nhung-hinh-nen-powerpoint-mo-dau-dep-va-an-tuong-nhat-670712.jpg" alt="Welcome Image">
+            <h2>Welcome to MOS team</h2>
+            <p>Chọn một ứng dụng từ danh sách bên trái để bắt đầu làm việc.</p>
+        </div>
+        <iframe id="appFrame" src=""></iframe>
+    </div>
+    <script>
+        function loadApp(url, useIframe) {
+            document.getElementById('welcomeScreen').style.display = 'none'; // Ẩn màn hình Welcome khi mở ứng dụng
+   		let frame = document.getElementById('appFrame');
+    
+  	  if (useIframe) {
+       		 frame.src = url;
+        	frame.style.display = 'block'; // Hiển thị iFrame nếu ứng dụng hỗ trợ
+   	 } else {
+       		 window.open(url, '_blank'); // Mở trong cửa sổ mới nếu không hỗ trợ iFrame
+   	 }
+        }
+    </script>
+</body>
+</html>
